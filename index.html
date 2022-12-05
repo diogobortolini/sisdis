@@ -10,6 +10,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easyzoom@2.5.3/css/easyzoom.css" />
 
     <!-- Custom CSS for the '3 Col Portfolio' Template -->
     <link href="css/portfolio-item.css" rel="stylesheet">
@@ -147,7 +149,8 @@
         <div class="col-md-8">
           <a name="img2"></a>
           <a href="#img2" class="pop">
-            <img class="img-responsive" src="images/t2-code.jpg"></a>
+            <div class="easyzoom easyzoom--overlay"> <a href="images/t2-code.jpg"> <img class="mainimage" src="images/t2-code.jpg" height="460" /> </a> </div>
+            <!--<img class="img-responsive" src="images/t2-code.jpg"></a>-->
         </div>
 
         <div class="col-md-4">
@@ -255,6 +258,7 @@
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/my.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/easyzoom@2.5.3/src/easyzoom.js"></script>
 
   </body>
 

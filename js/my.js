@@ -4,3 +4,7 @@ $(function() {
 			$('#imagemodal').modal('show');   
 		});		
 });
+
+$(document).ready(function() {
+		var $easyzoom = $('.easyzoom').easyZoom();
+});

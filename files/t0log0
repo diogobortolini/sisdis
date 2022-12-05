@@ -1,0 +1,28 @@
+Boa noite, sou o simulador SMPL tempo.c
+O processo 0 vai testar no tempo 30.0
+O processo 1 vai testar no tempo 30.0
+O processo 2 vai testar no tempo 30.0
+O processo 3 vai testar no tempo 30.0
+O processo 4 vai testar no tempo 30.0
+O processo 5 vai testar no tempo 30.0
+O processo 1 falhou no tempo 31.0
+O processo 0 vai testar no tempo 60.0
+O processo 2 vai testar no tempo 60.0
+O processo 3 vai testar no tempo 60.0
+O processo 4 vai testar no tempo 60.0
+O processo 5 vai testar no tempo 60.0
+O processo 1 recuperou no tempo 61.0
+O processo 1 vai testar no tempo 62.0
+O processo 0 vai testar no tempo 90.0
+O processo 2 vai testar no tempo 90.0
+O processo 3 vai testar no tempo 90.0
+O processo 4 vai testar no tempo 90.0
+O processo 5 vai testar no tempo 90.0
+O processo 1 vai testar no tempo 92.0
+O processo 0 vai testar no tempo 120.0
+O processo 2 vai testar no tempo 120.0
+O processo 3 vai testar no tempo 120.0
+O processo 4 vai testar no tempo 120.0
+O processo 5 vai testar no tempo 120.0
+O processo 1 vai testar no tempo 122.0
+O processo 0 vai testar no tempo 150.0

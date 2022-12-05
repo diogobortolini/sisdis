@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
     /* agora vem o loop principal do simulador */
 
     puts("======================================================================================"); 
-    puts("Início da execução: Tarefa 1 - Fazer cada um dos processos testar o seguinte no anel.");
+    puts("Início da execução: Tarefa 2 - Cada processo correto executa testes até achar outro processo correto.");
     puts("Aluno: Diogo Bortolini - Disciplina Sistemas Distribuídos");
     puts("======================================================================================"); 
 

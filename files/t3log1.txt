@@ -1,0 +1,44 @@
+======================================================================================
+Início da execução: Tarefa 3 - Cada processo mantém localmente o vetor State[N].
+Nesta tarefa ao executar um teste em um processo j, o testador atualiza a entrada correspondente no vetor State[j].
+Aluno: Diogo Bortolini - Disciplina Sistemas Distribuídos
+======================================================================================
+O processo 0 testou o processo 1 Correto no tempo 30.0
+Vetor State do Processo 0 => 0; 0; -1; -1; 
+O processo 1 testou o processo 2 Correto no tempo 30.0
+Vetor State do Processo 1 => -1; 0; 0; -1; 
+O processo 2 testou o processo 3 Correto no tempo 30.0
+Vetor State do Processo 2 => -1; -1; 0; 0; 
+O processo 3 testou o processo 0 Correto no tempo 30.0
+Vetor State do Processo 3 => 0; -1; -1; 0; 
+O processo 1 falhou no tempo 31.0
+O processo 2 falhou no tempo 32.0
+O processo 0 testou o processo 1 Falho no tempo 60.0
+O processo 0 testou o processo 2 Falho no tempo 60.0
+O processo 0 testou o processo 3 Correto no tempo 60.0
+Vetor State do Processo 0 => 0; 1; 1; 0; 
+O processo 3 testou o processo 0 Correto no tempo 60.0
+Vetor State do Processo 3 => 0; -1; -1; 0; 
+O processo 1 recuperou no tempo 61.0
+O processo 1 testou o processo 2 Falho no tempo 62.0
+O processo 1 testou o processo 3 Correto no tempo 62.0
+Vetor State do Processo 1 => -1; 0; 1; 0; 
+O processo 0 falhou no tempo 65.0
+O processo 3 testou o processo 0 Falho no tempo 90.0
+O processo 3 testou o processo 1 Correto no tempo 90.0
+Vetor State do Processo 3 => 1; 0; -1; 0; 
+O processo 2 recuperou no tempo 92.0
+O processo 1 testou o processo 2 Correto no tempo 92.0
+Vetor State do Processo 1 => -1; 0; 0; 0; 
+O processo 2 testou o processo 3 Correto no tempo 93.0
+Vetor State do Processo 2 => -1; -1; 0; 0; 
+O processo 3 testou o processo 0 Falho no tempo 120.0
+O processo 3 testou o processo 1 Correto no tempo 120.0
+Vetor State do Processo 3 => 1; 0; -1; 0; 
+O processo 1 testou o processo 2 Correto no tempo 122.0
+Vetor State do Processo 1 => -1; 0; 0; 0; 
+O processo 2 testou o processo 3 Correto no tempo 123.0
+Vetor State do Processo 2 => -1; -1; 0; 0; 
+O processo 3 testou o processo 0 Falho no tempo 150.0
+O processo 3 testou o processo 1 Correto no tempo 150.0
+Vetor State do Processo 3 => 1; 0; -1; 0; 

@@ -7,18 +7,20 @@ O processo 1 testou o processo 2 Correto no tempo 30.0
 O processo 2 testou o processo 3 Correto no tempo 30.0
 O processo 3 testou o processo 0 Correto no tempo 30.0
 O processo 1 falhou no tempo 31.0
+O processo 2 falhou no tempo 32.0
+O processo 3 falhou no tempo 33.0
 O processo 0 testou o processo 1 Falho no tempo 60.0
-O processo 0 testou o processo 2 Correto no tempo 60.0
-O processo 2 testou o processo 3 Correto no tempo 60.0
-O processo 3 testou o processo 0 Correto no tempo 60.0
-O processo 1 recuperou no tempo 61.0
-O processo 1 testou o processo 2 Correto no tempo 62.0
-O processo 0 testou o processo 1 Correto no tempo 90.0
-O processo 2 testou o processo 3 Correto no tempo 90.0
-O processo 3 testou o processo 0 Correto no tempo 90.0
-O processo 1 testou o processo 2 Correto no tempo 92.0
+O processo 0 testou o processo 2 Falho no tempo 60.0
+O processo 0 testou o processo 3 Falho no tempo 60.0
+O processo 0 testou o processo 1 Falho no tempo 90.0
+O processo 0 testou o processo 2 Falho no tempo 90.0
+O processo 0 testou o processo 3 Falho no tempo 90.0
+O processo 1 recuperou no tempo 92.0
+O processo 1 testou o processo 2 Falho no tempo 93.0
+O processo 1 testou o processo 3 Falho no tempo 93.0
+O processo 1 testou o processo 0 Correto no tempo 93.0
 O processo 0 testou o processo 1 Correto no tempo 120.0
-O processo 2 testou o processo 3 Correto no tempo 120.0
-O processo 3 testou o processo 0 Correto no tempo 120.0
-O processo 1 testou o processo 2 Correto no tempo 122.0
+O processo 1 testou o processo 2 Falho no tempo 123.0
+O processo 1 testou o processo 3 Falho no tempo 123.0
+O processo 1 testou o processo 0 Correto no tempo 123.0
 O processo 0 testou o processo 1 Correto no tempo 150.0

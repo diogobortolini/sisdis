@@ -177,14 +177,16 @@
 
         <div class="col-md-4">
           <h3>Descrição da Tarefa</h3>
-          <p>O objetivo desta tarefa era digitar, compilar e executar o programa exemplo, realizado durante a aula de laboratório.</p>
+          <p class="text-justify">O objetivo desta tarefa era cada processo manter localmente o vetor State[N]. A entrada do vetor State[j] indica o estado do processo j. O estado de cada processo pode ser: -1 (unknown), 0 (correto) ou 1 (falho). Todos os processos iniciam com o State[N] com -1 (indicando estado “unknown”) exceto  o próprio processo que inicia com 0 (zero). Nesta tarefa ao executar um teste em um processo j, o testador atualiza a entrada correspondente no vetor State[j]. Em cada intervalo de testes, o vetor State[N] é exibido.</p>
           <h3>Arquivos da tarefa</h3>
           <ul>
-            <li>tempo.c</li>
-            <li>t0log0</li>
+            <li><a href = "files/tempo3.c.txt" target= "_blank">tempo3.c</a></li>
+            <li><a href = "files/t3log0.txt" target= "_blank">log 0</a></li>
+            <li><a href = "files/t3log1.txt" target= "_blank">log 1</a></li>
+            <li><a href = "files/t3log2.txt" target= "_blank">log 2</a></li>
           </ul>
-          <h3>Arquivos da tarefa</h3>
-          <p>Bastando que o ambiente estivesse preparado para compilação, nenhum problema ou dificuldade para executar tal tarefa, uma vez que, o código foi implementado durante a aula de laboratório</p>
+          <h3>Relatos da tarefa</h3>
+          <p class="text-justify">Com base no código da tarefa 3, foi adicionado mais um membro na <i>struct</i>, um vetor de iteiros que armazenará o estado dos processos testados, chamado State[N] e implementadas duas funções iniciais: <i>limpaState</i> e <i>printState</i>. A primeira função é responsável como iniciar os estados de todos os processos para -1 (exceto o próprio processo que fica com 0) e é executada logo no início, antes dos processos realizarem os testes. Já a segunda função tem por objetivo exibir o estado atualizado (State) do processo testado na tela  o estado de um processo testado. Durante os testes o testador, após veirifcar o status de um processo, seja Correto ou Falho, atualizar o <i>State</i> daquele processo. No final do intervalo de teste a função <i>printState</i> é invocada para que mostra os estados dos processos que o testador conhece.</p> 
         </div>
 
       </div>
@@ -199,14 +201,14 @@
 
         <div class="col-md-4">
           <h3>Descrição da Tarefa</h3>
-          <p>O objetivo desta tarefa era digitar, compilar e executar o programa exemplo, realizado durante a aula de laboratório.</p>
+          <p class="text-justify">O objetivo desta tarefa era digitar, compilar e executar o programa exemplo, realizado durante a aula de laboratório.</p>
           <h3>Arquivos da tarefa</h3>
           <ul>
             <li>tempo.c</li>
             <li>t0log0</li>
           </ul>
-          <h3>Arquivos da tarefa</h3>
-          <p>Bastando que o ambiente estivesse preparado para compilação, nenhum problema ou dificuldade para executar tal tarefa, uma vez que, o código foi implementado durante a aula de laboratório</p>
+          <h3>Relatos da tarefa</h3>
+          <p class="text-justify">Bastando que o ambiente estivesse preparado para compilação, nenhum problema ou dificuldade para executar tal tarefa, uma vez que, o código foi implementado durante a aula de laboratório</p>
         </div>
 
       </div>

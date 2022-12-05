@@ -31,7 +31,7 @@ TipoProcesso *processo;
 
 /* Funções Adicionais */
 
-void limpaState(TipoProcesso *processo, int N) { //função para liompar os estados dos processos
+void limpaState(TipoProcesso *processo, int N) { //função para limpar os estados dos processos
 	int i;
 	for(i=0;i<N;i++)
 		processo->State[i] = -1;   //insere -1 para todos os processos

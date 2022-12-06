@@ -77,7 +77,7 @@
           <h3 class="page-header">Tarefa 0</h3>
         </div>
         <div class="col-md-8">
-          <img class="img-responsive" src="images/t0-code.jpg">
+          <a href="images/t0-code.jpg"><img class="img-responsive" src="images/t0-code.jpg"></a>
         </div>
 
         <div class="col-md-4">
@@ -100,7 +100,7 @@
           <h3 class="page-header">Tarefa 1</h3>
         </div>
         <div class="col-md-8">
-          <img class="img-responsive" src="images/t1-code.jpg">
+          <a href="images/t1-code.jpg"><img class="img-responsive" src="images/t1-code.jpg"></a>
         </div>
 
         <div class="col-md-4">
@@ -125,8 +125,7 @@
           <h3 class="page-header">Tarefa 2</h3>
         </div>
         <div class="col-md-8">
-
-           <img class="img-responsive" src="images/t2-code.jpg">
+          <a href="images/t2-code.jpg"><img class="img-responsive" src="images/t2-code.jpg"></a>
         </div>
 
         <div class="col-md-4">
@@ -152,8 +151,8 @@
           <h3 class="page-header">Tarefa 3</h3>
         </div>
         <div class="col-md-8">
-          <img class="img-responsive" src="images/t3-code.jpg"><br /><br />
-          <img class="img-responsive" src="images/t3-code2.jpg">
+          <a href="images/t3-code.jpg"><img class="img-responsive" src="images/t3-code.jpg"></a><br /><br />
+            <a href="images/t4-code2.jpg"><img class="img-responsive" src="images/t3-code2.jpg"></a>
         </div>
 
         <div class="col-md-4">
@@ -178,8 +177,8 @@
           <h3 class="page-header">Tarefa 4</h3>
         </div>
         <div class="col-md-8">
-          <img class="img-responsive" src="images/t4-code.jpg"><br /><br />
-          <img class="img-responsive" src="images/t4-code2.jpg">
+          <a href="images/t4-code.jpg"><img class="img-responsive" src="images/t4-code.jpg"></a><br /><br />
+          <a href="images/t4-code2.jpg"><img class="img-responsive" src="images/t4-code2.jpg"></a>
         </div>
 
         <div class="col-md-4">
@@ -193,7 +192,7 @@
             <li><a href = "files/t4log2.txt" target= "_blank">log 2</a></li>
           </ul>
           <h3>Relatos da tarefa</h3>
-          <p class="text-justify">Iniciando através da tarefa 3, para tal tarefa foi adicionado uma nova variável de inicialização, chamada <i>limpaVerificados</i> que armazena quais os processos que um testador avaliou no intervalo de teste e foram falhos, antes de conseguir um processo Correto. O vetor na posição [j] armazena um inteiro 0 (para não veirifcado) e 1 para verificado. Isso é necessário, pois ao testar um processo falho e se dirigir para um próximo Correto, o testador armazena que testou o anterior (falho) para que ao receber as atualizações de status dos processos do processo correto ele não pegue o status do falho testado. Uma vez, a informação que ele possui é a mais recente/atualizada. Antes do inicio dos testes ele preenche com zeros o vetor <i>verificados[N]</i></p>
+          <p class="text-justify">Iniciando através da tarefa 3, para tal tarefa foi adicionado uma nova variável de inicialização, chamada <i>limpaVerificados</i> que armazena quais os processos que um testador avaliou no intervalo de teste e foram falhos, antes de conseguir um processo Correto. O vetor na posição [j] armazena um inteiro 0 (para não verificado) e 1 (para verificado). Isso é necessário, pois ao testar um processo falho e se dirigir para um próximo Correto, o testador tem a informação atualizada armazena que testou o anterior e ele estava falho, mas ao receber as informações do processo correto, este ainda estará atualizado com relação ao processo falho. Uma vez que a informação que ele possui é a mais recente/atualizada já que acbou de testar em relação a qualquer outro processo. Antes do inicio dos testes ele preenche com zeros o vetor <i>verificados[N]</i></p>
         </div>
 
       </div>

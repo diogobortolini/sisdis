@@ -1,0 +1,30 @@
+======================================================================================
+Início da execução: Trabalho 1 - vCube.
+Implementação de um detector de falhas vCube no ambiente de simulação SMPL.
+Um evento consiste da mudança de estado de um ou mais processos.
+É exibido o número de testes executados e a latência para todos os processos corretos detectarem o evento.
+Cada processo mantém o vetor STATE[0..N-1] de contadores de eventos, inicializado em -1 (estado “unknown”).
+Aluno: Diogo Bortolini - Disciplina Sistemas Distribuídos
+======================================================================================
+
+
+ ###############  RODADA 1 ###############
+Processo 0 testa processo 1 com OK no tempo 30.0, Processo 0 ATUALIZOU state de [ 1 ]
+Processo 0 STATE[ 0 0 ]
+Processo 1 STATE[ -1 0 ]
+
+Processo 1 testa processo 0 com OK no tempo 30.0, Processo 1 ATUALIZOU state de [ 0 ]
+Processo 0 STATE[ 0 0 ]
+Processo 1 STATE[ 0 0 ]
+
+
+ ###############  RODADA 2 ###############
+Processo 0 testa processo 1 com OK no tempo 60.0
+Processo 1 testa processo 0 com OK no tempo 60.0
+
+ ###############  RODADA 3 ###############
+Processo 0 testa processo 1 com OK no tempo 90.0
+Processo 1 testa processo 0 com OK no tempo 90.0
+
+ ###############  RODADA 4 ###############
+Processo 0 testa processo 1 com OK no tempo 120.0

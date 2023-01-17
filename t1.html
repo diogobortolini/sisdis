@@ -51,11 +51,11 @@
 
       <div class="row">
 
-        <div class="col-md-8">
+        <div class="col-md-4">
           <img class="img-responsive" src="images/Figura-1-Topologia-do-VCube-com-tres-dimensoes-e-clusters-do-processo-0.png">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-8">
           <h3>Descrição do Trabalho 1 - Relatório da Implementação</h3>
           <p class="text-justify">Implementação de um detector de falhas vCube no ambiente de simulação SMPL, exibindo os resultados para diversos valores de N e diversos eventos. Um evento consiste da mudança de estado de um ou mais processos. Para cada evento é exibido o número de testes executados e a latência para todos os processos corretos detectarem o evento. Cada processo mantém o vetor STATE[0..N-1] de contadores de eventos, inicializado em -1 (estado “unknown”). Assume-se que os processos são inicializados corretos (estado 0), a entrada correspondente ao próprio processo no vetor STATE[] do testador é setada para zero. Ao descobrir um novo evento em um nodo testado, o testador incrementa a entrada correspondente no vetor STATE[].</p>
           <!--<h3>Project Details</h3>
@@ -152,57 +152,6 @@ ordem) que devem ser testados pelo testador i nos clusters s=1,2,…,logN (onde 
         </div>
 
       </div>
-
-            <div class="row">
-      <div class="col-lg-12">
-        <a name="img4"></a>
-          <h3 class="page-header">Tarefa 4</h3>
-        </div>
-        <div class="col-md-8">
-          <a href="images/t4-code.jpg"><img class="img-responsive" src="images/t4-code.jpg"></a><br /><br />
-          <a href="images/t4-code2.jpg"><img class="img-responsive" src="images/t4-code2.jpg"></a>
-        </div>
-
-        <div class="col-md-4">
-          <h3>Descrição da Tarefa</h3>
-          <p class="text-justify">O objetivo desta tarefa era quando um processo correto testa outro processo correto obtém as informações do estado dos demais processos do sistema, processos do sistema exceto aqueles que testou nesta rodada, além do próprio testador.</p>
-          <h3>Arquivos da tarefa</h3>
-          <ul>
-            <li><a href = "files/tempo4.c.txt" target= "_blank">tempo4.c</a></li>
-            <li><a href = "files/t4log0.txt" target= "_blank">log 0</a></li>
-            <li><a href = "files/t4log1.txt" target= "_blank">log 1</a></li>
-            <li><a href = "files/t4log2.txt" target= "_blank">log 2</a></li>
-          </ul>
-          <h3>Relatos da tarefa</h3>
-          <p class="text-justify">Iniciando através da tarefa 3, para tal tarefa foi adicionado uma nova variável de inicialização, chamada <i>limpaVerificados</i> que armazena quais os processos que um testador avaliou no intervalo de teste e foram falhos, antes de conseguir um processo Correto. O vetor na posição [j] armazena um inteiro 0 (para não verificado) e 1 (para verificado). Isso é necessário, pois ao testar um processo falho e se dirigir para um próximo Correto, o testador tem a informação atualizada armazenada sobre o processo que falhou, mas se receber as informações do processo correto, este enviará a informações desatualizada do processo falho e esta será sobrescrita incorretamente. Uma vez que a informação que ele possui é a mais recente/atualizada já que acabou de testar em relação a qualquer outro processo. Então com o vetor <i>verificados[N]</i>Antes do inicio dos testes ele preenche com zeros o vetor <i>verifica o testador obtém as informações de status do processo Coretto, desde que não seja seu próprio status ou de um que tenha verificado falho recentemente. Antes do inicio dos testes ele preenche com zeros o vetor <i>verificados[N].</i></p>
-        </div>
-
-      </div>
-      
-      <!-- <div class="row">
-
-        <div class="col-lg-12">
-          <h3 class="page-header">Related Projects</h3>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-        	<a href="#"><img class="img-responsive portfolio-item" src="http://placehold.it/500x300"></a>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-        	<a href="#"><img class="img-responsive portfolio-item" src="http://placehold.it/500x300"></a>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-        	<a href="#"><img class="img-responsive portfolio-item" src="http://placehold.it/500x300"></a>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-        	<a href="#"><img class="img-responsive portfolio-item" src="http://placehold.it/500x300"></a>
-        </div>
-
-      </div>-->
-
     </div><!-- /.container -->
 
     <div class="container">

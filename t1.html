@@ -109,9 +109,6 @@ ordem) que devem ser testados pelo testador i nos clusters s=1,2,…,logN (onde 
             Na sequância foi criada a estrutura <strong>st_no</strong> que possui informações do respectivo id do processo e os estados dos demais processos que tal id tem conhecimento.
             Por fim, a estrutura <strong>st_event</strong> que armazena as informações de evento de determinado processo, com isso é possível saber qual o tipo de evento que tal processo sofreu (FAULT ou RECOVERY), qual rodada de testes estava ocorrendo quando o evento aconteceu, e demais informações como latência, número do teste e a situação atual do evento.
             Entre as váriaveis globais temos <strong>st_no</strong> onde estão os processos (nós), o número de clusters (conforme a qunatidade de processos), uma várivel de controle chamad <strong>printar</strong> para saber quando imprimir os States dos processos (no caso, ele imprime apenas quando ocorre efetivamente alguma alterações do States do processo testando) e um ponteiro para inteiro (<strong>info_no</strong>) com resultados dos processos Corretos e falhos e ativos e, o número de processos (<strong>n</strong>).</p>
-          
-          <h3>Relatos da tarefa</h3>                    
-          <p class="text-justify">Utilizando como base o código da tarefa 0, houve a necessidade de imprementar uma variável <i>int</i> que aloque o id do próximo processo (chamada de <i>proximo</i>). O id do próximo processo de <i>N-1</i> foi tratado para que seja o 0 (zero), para isso, foi usado <strong><i>proximo = (token + 1) % N</i></strong>. Foi criada a variável <i>situacao</i> que recebe um binário que representa o status do processo (0-> Correto e 1-> Falho). Testes removendo diferentes processos podem ser vistos nos logs.</p>
         </div>
 
       </div>
@@ -119,26 +116,24 @@ ordem) que devem ser testados pelo testador i nos clusters s=1,2,…,logN (onde 
             <div class="row">
       <div class="col-lg-12">
            <a name="img2"></a>
-          <h3 class="page-header">Tarefa 2</h3>
+          <h3 class="page-header">Registro dos Eventos e States</h3>
         </div>
         <div class="col-md-8">
           <a href="images/t2-code.jpg"><img class="img-responsive" src="images/t2-code.jpg"></a>
         </div>
 
         <div class="col-md-4">
-          <h3>Descrição da Tarefa</h3>
-          <p class="text-justify">O objetivo desta tarefa era cada processo correto executar testes até achar outro processo correto.</p>
-          <h3>Arquivos da tarefa</h3>
-          <ul>
-            <li><a href = "files/tempo2.c.txt" target= "_blank">tempo2.c</a></li>
-            <li><a href = "files/t2log0.txt" target= "_blank">log 0</a></li>
-            <li><a href = "files/t2log1.txt" target= "_blank">log 1</a></li>
-            <li><a href = "files/t2log2.txt" target= "_blank">log 2</a></li>
-          </ul>
-          <h3>Relatos da tarefa</h3>
-          <p class="text-justify">Com base no código da Tarefa 1, foi implementado um laço <i>while</i> que executará enquanto o próximo processo a ser testado não for o próprio testador. Dentro do while, através de <i>if-else</i>, 
-            verifica-se o processo a ser testado está Correto, se estiver o <i>while</i> é interrompido e as execuções seguem para o escalonador. Se o processo a ser testado estiver falho, o testador testa o próximo processo, até que encontre um correto ou até que o processo a ser testado seja ele mesmo (indicando que todos os demais processos estão falhos). Por fim, ainda se ocorrer a situação de todos os processos estiverem falhos, o testador encerra a buscar por um correto e aguardar o escalonador para testar mais tarde, se possível.</p>
-        </div>
+          <p><strong>Funções para marcação dos Eventos</strong></p>
+          <p class="text-justify">Com o objetivo de verificar os eventos ocorridos nos processos (FAULT ou RECOVERY) e anotar a latência gasta alguns funções foram criadas. A função <strong>novoEvento</strong>, consiste em setar valores da estrutura do evento, com o tipo do evento, zera o contador de latência, anota a rodada que o evento ocorreu, zer o número de testes e o contado de testes atual. A função <strong>novoEvento</strong> é chamado sempre que um evento de FAULT ou RECOVERY ocorre e a função <strong>imprimirEvento</strong> é executada para imprimir na tela as informações do evento.
+            Outra função é a de <strong>limpaEvento</strong> que limpa a estrutura dos eventos, setando os valores para -1 (unknown). Essa função é chamada sempre que um evento foi percebido e atualizado por todos os processos corretos. A cada teste executado a função <strong>atualizaEvento</strong> é chamada para verificar se todos os processos estão com o status do evento atualizados, se estiverem a função <strong>imprimirEvento</strong> é executada para imprimir na tela as informações do evento percebido.</p>
+          <p><strong>Funções para marcação dos States</strong></p>
+          <p class="text-justify">Outro fator importante é as função que controlam o States de cada processo, que nada mais é do que o registro do estado de todos os processos que tal processo sabe. Logo no início do programa, a função <strong>limpaState</strong> que é responsável por iniciar o States (array) de cada processo com o valor -1 (unknown), exceto o valor do estado que representa o próprio processo (setando para 0, ou seja correto), obviamente que o próprio processo correto, sabe que o seu estado é correto.
+           Sempre que um processo correto executa um teste em um processo correto (OK), então ele verifica o State do processo testado e verifica se há alguma informações que esteja atualizada em relação ao seu State. Sempre que um processo detecta que ocorreu um novo evento, o estado daquele processo é incrementado no State, ou seja, os processo no State são setados como -1 (unknown), quando ocorre um teste correto, o valor é incrementado (+1), ficando 0. Se tal processo em algum momento falhar, o estado é incrementado, ficando 1. Se posteriormente se recuperar, se estado será 2 e, assim sucessivamente. Percebe-se que valores ímpares indicam que o processo está com FAULT (falho) e números pares está Correto (ok). A função que verifica se precisa atualizar o States é a função <strong>atualizaState</strong> que verifica se algum valor de State do processo testado é maior que o do testado, se for ele atualiza. Por fim, a função <strong>imprimirState</strong> mostra o State de todos os processos. No caso deste programa, o State é invocado apenas quando detecta que houve alguma mundança no State de pelo menos um processo (para não possui muito os logs). 
+            
+            
+            
+            
+         </div>
 
       </div>
       

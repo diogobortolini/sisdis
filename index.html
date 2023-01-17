@@ -54,173 +54,15 @@
 
       <div class="row">
 
-        <div class="col-md-8">
-          <img class="img-responsive" src="images/tablet-coffee.jpg">
+        <div class="col-lg-6">
+          <img class="img-responsive" src="images/Figura-1-Topologia-do-VCube-com-tres-dimensoes-e-clusters-do-processo-0.png"><br><small>Fonte: Ruchel, Lucas & Camargo, Edson & Turchetti, Rogerio & Duarte Jr, Elias & Arantes, Luciana & Rodrigues, Luiz. (2021). Abaixo o Líder: Um Algoritmo Hierárquico Sem-Líder para Difusão Atômica. 10.5753/sbrc.2021.16708.</small> 
         </div>
 
-        <div class="col-md-4">
-          <h3>Descrição do Trabalho</h3>
-          <p class="text-justify">Tarefas para aprender a usar nossa ferramenta de simulação, o SMPL. Dividido em 4 partes, sendo a primeira realizada em aula juntamente com o professor. As demais foram realizadas individualmente e são apresentados nesta página. As tarefas visam aumentar a dificuldade na implementação da simulação e, ao final do processo, o programa se pareça com o algoritmo VRing (Virtual Ring). Cada uma das tarefas foi implementada levando em consideração do o código apresentado na tarefas anterior mais as suas especificidades.</p>
-          <!--<h3>Project Details</h3>
-          <ul>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit Amet</li>
-            <li>Consectetur</li>
-            <li>Adipiscing Elit</li>
-          </ul>-->
+        <div class="col-lg-6">
+           <img class="img-responsive" src="images/smpl.png"> 
         </div>     
         
       </div>   
-      <div class="row">
-      <div class="col-lg-12">
-          <a name="img0"></a>
-          <h3 class="page-header">Tarefa 0</h3>
-        </div>
-        <div class="col-md-8">
-          <a href="images/t0-code.jpg"><img class="img-responsive" src="images/t0-code.jpg"></a>
-        </div>
-
-        <div class="col-md-4">
-          <h3>Descrição da Tarefa</h3>
-          <p class="text-justify">O objetivo desta tarefa era digitar, compilar e executar o programa exemplo, realizado durante a aula de laboratório.</p>
-          <h3>Arquivos da tarefa</h3>
-          <ul>
-            <li><a href = "files/tempo.c.txt" target= "_blank">tempo.c</a></li>
-            <li><a href = "files/t0log0.txt" target= "_blank">log</a></li>
-          </ul>
-          <h3>Relato da tarefa</h3>
-          <p class="text-justify">Bastando que o ambiente estivesse preparado para compilação, nenhum problema ou dificuldade para executar tal tarefa, uma vez que, o código foi implementado durante a aula de laboratório.</p>
-        </div>
-
-      </div>
-      
-            <div class="row">
-      <div class="col-lg-12">
-          <a name="img1"></a>
-          <h3 class="page-header">Tarefa 1</h3>
-        </div>
-        <div class="col-md-8">
-          <a href="images/t1-code.jpg"><img class="img-responsive" src="images/t1-code.jpg"></a>
-        </div>
-
-        <div class="col-md-4">
-          <h3>Descrição da Tarefa</h3>
-          <p class="text-justify">O objetivo desta tarefa era fazer cada um dos processos testar o seguinte no anel.</p>
-          <h3>Arquivos da tarefa</h3>
-          <ul>
-            <li><a href = "files/tempo1.c.txt" target= "_blank">tempo1.c</a></li>
-            <li><a href = "files/t1log0.txt" target= "_blank">log 0</a></li>
-            <li><a href = "files/t1log1.txt" target= "_blank">log 1</a></li>
-            <li><a href = "files/t1log2.txt" target= "_blank">log 2</a></li>
-          </ul>
-          <h3>Relatos da tarefa</h3>                    
-          <p class="text-justify">Utilizando como base o código da tarefa 0, houve a necessidade de imprementar uma variável <i>int</i> que aloque o id do próximo processo (chamada de <i>proximo</i>). O id do próximo processo de <i>N-1</i> foi tratado para que seja o 0 (zero), para isso, foi usado <strong><i>proximo = (token + 1) % N</i></strong>. Foi criada a variável <i>situacao</i> que recebe um binário que representa o status do processo (0-> Correto e 1-> Falho). Testes removendo diferentes processos podem ser vistos nos logs.</p>
-        </div>
-
-      </div>
-      
-            <div class="row">
-      <div class="col-lg-12">
-           <a name="img2"></a>
-          <h3 class="page-header">Tarefa 2</h3>
-        </div>
-        <div class="col-md-8">
-          <a href="images/t2-code.jpg"><img class="img-responsive" src="images/t2-code.jpg"></a>
-        </div>
-
-        <div class="col-md-4">
-          <h3>Descrição da Tarefa</h3>
-          <p class="text-justify">O objetivo desta tarefa era cada processo correto executar testes até achar outro processo correto.</p>
-          <h3>Arquivos da tarefa</h3>
-          <ul>
-            <li><a href = "files/tempo2.c.txt" target= "_blank">tempo2.c</a></li>
-            <li><a href = "files/t2log0.txt" target= "_blank">log 0</a></li>
-            <li><a href = "files/t2log1.txt" target= "_blank">log 1</a></li>
-            <li><a href = "files/t2log2.txt" target= "_blank">log 2</a></li>
-          </ul>
-          <h3>Relatos da tarefa</h3>
-          <p class="text-justify">Com base no código da Tarefa 1, foi implementado um laço <i>while</i> que executará enquanto o próximo processo a ser testado não for o próprio testador. Dentro do while, através de <i>if-else</i>, 
-            verifica-se o processo a ser testado está Correto, se estiver o <i>while</i> é interrompido e as execuções seguem para o escalonador. Se o processo a ser testado estiver falho, o testador testa o próximo processo, até que encontre um correto ou até que o processo a ser testado seja ele mesmo (indicando que todos os demais processos estão falhos). Por fim, ainda se ocorrer a situação de todos os processos estiverem falhos, o testador encerra a buscar por um correto e aguardar o escalonador para testar mais tarde, se possível.</p>
-        </div>
-
-      </div>
-      
-      <div class="row">
-      <div class="col-lg-12">
-           <a name="img3"></a>
-          <h3 class="page-header">Tarefa 3</h3>
-        </div>
-        <div class="col-md-8">
-          <a href="images/t3-code.jpg"><img class="img-responsive" src="images/t3-code.jpg"></a><br /><br />
-            <a href="images/t4-code2.jpg"><img class="img-responsive" src="images/t3-code2.jpg"></a>
-        </div>
-
-        <div class="col-md-4">
-          <h3>Descrição da Tarefa</h3>
-          <p class="text-justify">O objetivo desta tarefa era cada processo manter localmente o vetor State[N]. A entrada do vetor State[j] indica o estado do processo j. O estado de cada processo pode ser: -1 (unknown), 0 (correto) ou 1 (falho). Todos os processos iniciam com o State[N] com -1 (indicando estado “unknown”) exceto  o próprio processo que inicia com 0 (zero). Nesta tarefa ao executar um teste em um processo j, o testador atualiza a entrada correspondente no vetor State[j]. Em cada intervalo de testes, o vetor State[N] é exibido.</p>
-          <h3>Arquivos da tarefa</h3>
-          <ul>
-            <li><a href = "files/tempo3.c.txt" target= "_blank">tempo3.c</a></li>
-            <li><a href = "files/t3log0.txt" target= "_blank">log 0</a></li>
-            <li><a href = "files/t3log1.txt" target= "_blank">log 1</a></li>
-            <li><a href = "files/t3log2.txt" target= "_blank">log 2</a></li>
-          </ul>
-          <h3>Relatos da tarefa</h3>
-          <p class="text-justify">Com base no código da tarefa 2, foi adicionado mais um membro na <i>struct</i>, um vetor de inteiros que armazenará o estado dos processos testados, chamado State[N] e foram implementadas duas funções iniciais: <i>limpaState</i> e <i>printState</i>. A primeira função é responsável como iniciar os estados de todos os processos para -1 (exceto o próprio processo que fica com 0) e é executada logo no início, antes dos processos realizarem os testes. Já a segunda função tem por objetivo exibir o estado atualizado (State) do processo testado na tela. Durante os testes, o testador veirifcar o status de um processo, seja Correto ou Falho e atualiza o <i>State</i> daquele processo. No final do intervalo de teste a função <i>printState</i> é invocada para mostrar os estados dos processos que o testador conhece.</p> 
-        </div>
-
-      </div>
-
-            <div class="row">
-      <div class="col-lg-12">
-        <a name="img4"></a>
-          <h3 class="page-header">Tarefa 4</h3>
-        </div>
-        <div class="col-md-8">
-          <a href="images/t4-code.jpg"><img class="img-responsive" src="images/t4-code.jpg"></a><br /><br />
-          <a href="images/t4-code2.jpg"><img class="img-responsive" src="images/t4-code2.jpg"></a>
-        </div>
-
-        <div class="col-md-4">
-          <h3>Descrição da Tarefa</h3>
-          <p class="text-justify">O objetivo desta tarefa era quando um processo correto testa outro processo correto obtém as informações do estado dos demais processos do sistema, processos do sistema exceto aqueles que testou nesta rodada, além do próprio testador.</p>
-          <h3>Arquivos da tarefa</h3>
-          <ul>
-            <li><a href = "files/tempo4.c.txt" target= "_blank">tempo4.c</a></li>
-            <li><a href = "files/t4log0.txt" target= "_blank">log 0</a></li>
-            <li><a href = "files/t4log1.txt" target= "_blank">log 1</a></li>
-            <li><a href = "files/t4log2.txt" target= "_blank">log 2</a></li>
-          </ul>
-          <h3>Relatos da tarefa</h3>
-          <p class="text-justify">Iniciando através da tarefa 3, para tal tarefa foi adicionado uma nova variável de inicialização, chamada <i>limpaVerificados</i> que armazena quais os processos que um testador avaliou no intervalo de teste e foram falhos, antes de conseguir um processo Correto. O vetor na posição [j] armazena um inteiro 0 (para não verificado) e 1 (para verificado). Isso é necessário, pois ao testar um processo falho e se dirigir para um próximo Correto, o testador tem a informação atualizada armazenada sobre o processo que falhou, mas se receber as informações do processo correto, este enviará a informações desatualizada do processo falho e esta será sobrescrita incorretamente. Uma vez que a informação que ele possui é a mais recente/atualizada já que acabou de testar em relação a qualquer outro processo. Então com o vetor <i>verificados[N]</i>Antes do inicio dos testes ele preenche com zeros o vetor <i>verifica o testador obtém as informações de status do processo Coretto, desde que não seja seu próprio status ou de um que tenha verificado falho recentemente. Antes do inicio dos testes ele preenche com zeros o vetor <i>verificados[N].</i></p>
-        </div>
-
-      </div>
-      
-      <!-- <div class="row">
-
-        <div class="col-lg-12">
-          <h3 class="page-header">Related Projects</h3>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-        	<a href="#"><img class="img-responsive portfolio-item" src="http://placehold.it/500x300"></a>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-        	<a href="#"><img class="img-responsive portfolio-item" src="http://placehold.it/500x300"></a>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-        	<a href="#"><img class="img-responsive portfolio-item" src="http://placehold.it/500x300"></a>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-        	<a href="#"><img class="img-responsive portfolio-item" src="http://placehold.it/500x300"></a>
-        </div>
-
-      </div>-->
-
     </div><!-- /.container -->
 
     <div class="container">
@@ -230,7 +72,7 @@
       <footer>
         <div class="row">
           <div class="col-lg-12">
-            <p>Copyright &copy; 2022</p>
+            <p>Copyright &copy; 2023</p>
           </div>
         </div>
       </footer>

@@ -128,11 +128,7 @@ ordem) que devem ser testados pelo testador i nos clusters s=1,2,…,logN (onde 
             Outra função é a de <strong>limpaEvento</strong> que limpa a estrutura dos eventos, setando os valores para -1 (unknown). Essa função é chamada sempre que um evento foi percebido e atualizado por todos os processos corretos. A cada teste executado a função <strong>atualizaEvento</strong> é chamada para verificar se todos os processos estão com o status do evento atualizados, se estiverem a função <strong>imprimirEvento</strong> é executada para imprimir na tela as informações do evento percebido.</p>
           <p><strong>Funções para marcação dos States</strong></p>
           <p class="text-justify">Outro fator importante é as função que controlam o States de cada processo, que nada mais é do que o registro do estado de todos os processos que tal processo sabe. Logo no início do programa, a função <strong>limpaState</strong> que é responsável por iniciar o States (array) de cada processo com o valor -1 (unknown), exceto o valor do estado que representa o próprio processo (setando para 0, ou seja correto), obviamente que o próprio processo correto, sabe que o seu estado é correto.
-           Sempre que um processo correto executa um teste em um processo correto (OK), então ele verifica o State do processo testado e verifica se há alguma informações que esteja atualizada em relação ao seu State. Sempre que um processo detecta que ocorreu um novo evento, o estado daquele processo é incrementado no State, ou seja, os processo no State são setados como -1 (unknown), quando ocorre um teste correto, o valor é incrementado (+1), ficando 0. Se tal processo em algum momento falhar, o estado é incrementado, ficando 1. Se posteriormente se recuperar, se estado será 2 e, assim sucessivamente. Percebe-se que valores ímpares indicam que o processo está com FAULT (falho) e números pares está Correto (ok). A função que verifica se precisa atualizar o States é a função <strong>atualizaState</strong> que verifica se algum valor de State do processo testado é maior que o do testado, se for ele atualiza. Por fim, a função <strong>imprimirState</strong> mostra o State de todos os processos. No caso deste programa, o State é invocado apenas quando detecta que houve alguma mundança no State de pelo menos um processo (para não possui muito os logs). 
-            
-            
-            
-            
+           Sempre que um processo correto executa um teste em um processo correto (OK), então ele verifica o State do processo testado e verifica se há alguma informações que esteja atualizada em relação ao seu State. Sempre que um processo detecta que ocorreu um novo evento, o estado daquele processo é incrementado no State, ou seja, os processo no State são setados como -1 (unknown), quando ocorre um teste correto, o valor é incrementado (+1), ficando 0. Se tal processo em algum momento falhar, o estado é incrementado, ficando 1. Se posteriormente se recuperar, se estado será 2 e, assim sucessivamente. Percebe-se que valores ímpares indicam que o processo está com FAULT (falho) e números pares está Correto (ok). A função que verifica se precisa atualizar o States é a função <strong>atualizaState</strong> que verifica se algum valor de State do processo testado é maior que o do testado, se for ele atualiza. Por fim, a função <strong>imprimirState</strong> mostra o State de todos os processos. No caso deste programa, o State é invocado apenas quando detecta que houve alguma mundança no State de pelo menos um processo (para não possui muito os logs).   
          </div>
 
       </div>
@@ -140,7 +136,7 @@ ordem) que devem ser testados pelo testador i nos clusters s=1,2,…,logN (onde 
       <div class="row">
       <div class="col-lg-12">
            <a name="img3"></a>
-          <h3 class="page-header">Tarefa 3</h3>
+          <h3 class="page-header">Outras Informações</h3>
         </div>
         <div class="col-md-8">
           <a href="images/t3-code.jpg"><img class="img-responsive" src="images/t3-code.jpg"></a><br /><br />
@@ -148,17 +144,8 @@ ordem) que devem ser testados pelo testador i nos clusters s=1,2,…,logN (onde 
         </div>
 
         <div class="col-md-4">
-          <h3>Descrição da Tarefa</h3>
-          <p class="text-justify">O objetivo desta tarefa era cada processo manter localmente o vetor State[N]. A entrada do vetor State[j] indica o estado do processo j. O estado de cada processo pode ser: -1 (unknown), 0 (correto) ou 1 (falho). Todos os processos iniciam com o State[N] com -1 (indicando estado “unknown”) exceto  o próprio processo que inicia com 0 (zero). Nesta tarefa ao executar um teste em um processo j, o testador atualiza a entrada correspondente no vetor State[j]. Em cada intervalo de testes, o vetor State[N] é exibido.</p>
-          <h3>Arquivos da tarefa</h3>
-          <ul>
-            <li><a href = "files/tempo3.c.txt" target= "_blank">tempo3.c</a></li>
-            <li><a href = "files/t3log0.txt" target= "_blank">log 0</a></li>
-            <li><a href = "files/t3log1.txt" target= "_blank">log 1</a></li>
-            <li><a href = "files/t3log2.txt" target= "_blank">log 2</a></li>
-          </ul>
-          <h3>Relatos da tarefa</h3>
-          <p class="text-justify">Com base no código da tarefa 2, foi adicionado mais um membro na <i>struct</i>, um vetor de inteiros que armazenará o estado dos processos testados, chamado State[N] e foram implementadas duas funções iniciais: <i>limpaState</i> e <i>printState</i>. A primeira função é responsável como iniciar os estados de todos os processos para -1 (exceto o próprio processo que fica com 0) e é executada logo no início, antes dos processos realizarem os testes. Já a segunda função tem por objetivo exibir o estado atualizado (State) do processo testado na tela. Durante os testes, o testador veirifcar o status de um processo, seja Correto ou Falho e atualiza o <i>State</i> daquele processo. No final do intervalo de teste a função <i>printState</i> é invocada para mostrar os estados dos processos que o testador conhece.</p> 
+          <p><strong>Demais informações</strong></p>
+          <p class="text-justify">Por fim, os testes são realizados a cada 30 unidades de tempo conforme a matrizTeste gerada com os testes a serem realizados. Na função <strong>main</strong> estão os eventos escalonados de FAULT e RECOVERY. Um loop com os testes é realizado enquanto o tempo na simulação não se esgotar (argumento informado no momento da execução).</p>
         </div>
 
       </div>

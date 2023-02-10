@@ -1,0 +1,946 @@
+======================================================================================
+Início da execução: Trabalho 2 - vCube Assíncrono.
+Implementação de um detector de falhas vCube Assíncrono no ambiente de simulação SMPL.
+Um evento consiste da mudança de estado de um ou mais processos.
+É exibido o número de testes executados e a latência para todos os processos corretos detectarem o evento.
+Neste caso os processos podem levantar falsas suspeitas de falhas
+Cada processo mantém o vetor STATE[0..N-1] de contadores de eventos, inicializado em -1 (estado “unknown”).
+Aluno: Diogo Bortolini - Disciplina Sistemas Distribuídos
+======================================================================================
+
+
+ ###############  RODADA 1 ###############
+Processo 0 testa processo 1 com OK no tempo 30.0, Processo 0 ATUALIZOU state de [ 1 ]
+Processo 0 STATE[ 0 0 -1 -1 -1 -1 -1 -1 ]
+Processo 1 STATE[ -1 0 -1 -1 -1 -1 -1 -1 ]
+Processo 2 STATE[ -1 -1 0 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 0 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 0 testa processo 2 com OK no tempo 30.0, Processo 0 ATUALIZOU state de [ 2 ]
+Processo 0 STATE[ 0 0 0 -1 -1 -1 -1 -1 ]
+Processo 1 STATE[ -1 0 -1 -1 -1 -1 -1 -1 ]
+Processo 2 STATE[ -1 -1 0 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 0 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 0 testa processo 4 com OK no tempo 30.0, Processo 0 ATUALIZOU state de [ 4 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ -1 0 -1 -1 -1 -1 -1 -1 ]
+Processo 2 STATE[ -1 -1 0 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 0 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 1 testa processo 0 com OK no tempo 30.0, Processo 1 ATUALIZOU state de [ 0 ], Processo 1 ATUALIZOU state de [ 2 4 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 2 STATE[ -1 -1 0 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 0 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 1 testa processo 3 com OK no tempo 30.0, Processo 1 ATUALIZOU state de [ 3 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 -1 -1 -1 ]
+Processo 2 STATE[ -1 -1 0 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 0 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 1 testa processo 5 com OK no tempo 30.0, Processo 1 ATUALIZOU state de [ 5 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ -1 -1 0 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 0 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 2 testa processo 0 com OK no tempo 30.0, Processo 2 ATUALIZOU state de [ 0 ], Processo 2 ATUALIZOU state de [ 1 4 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 0 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 2 testa processo 3 com OK no tempo 30.0, Processo 2 ATUALIZOU state de [ 3 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 0 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 2 testa processo 6 com OK no tempo 30.0, Processo 2 ATUALIZOU state de [ 6 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ -1 -1 -1 0 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 3 testa processo 1 com OK no tempo 30.0, Processo 3 ATUALIZOU state de [ 1 ], Processo 3 ATUALIZOU state de [ 0 2 4 5 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 3 testa processo 2 com OK no tempo 30.0, Processo 3 ATUALIZOU state de [ 6 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 3 testa processo 7 com OK no tempo 30.0, Processo 3 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ -1 -1 -1 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 4 testa processo 0 com OK no tempo 30.0, Processo 4 ATUALIZOU state de [ 0 ], Processo 4 ATUALIZOU state de [ 1 2 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 4 testa processo 5 com OK no tempo 30.0, Processo 4 ATUALIZOU state de [ 5 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 4 testa processo 6 com OK no tempo 30.0, Processo 4 ATUALIZOU state de [ 6 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 5 testa processo 1 com OK no tempo 30.0, Processo 5 ATUALIZOU state de [ 1 ], Processo 5 ATUALIZOU state de [ 0 2 3 4 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 5 testa processo 4 com OK no tempo 30.0, Processo 5 ATUALIZOU state de [ 6 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 5 testa processo 7 com OK no tempo 30.0, Processo 5 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 6 testa processo 2 com OK no tempo 30.0, Processo 6 ATUALIZOU state de [ 2 ], Processo 6 ATUALIZOU state de [ 0 1 3 4 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 6 testa processo 4 com OK no tempo 30.0, Processo 6 ATUALIZOU state de [ 5 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 6 testa processo 7 com OK no tempo 30.0, Processo 6 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 0 ]
+
+Processo 7 testa processo 3 com OK no tempo 30.0, Processo 7 ATUALIZOU state de [ 3 ], Processo 7 ATUALIZOU state de [ 0 1 2 4 5 6 ]
+Processo 0 STATE[ 0 0 0 -1 0 -1 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 7 testa processo 5 com OK no tempo 30.0
+Processo 7 testa processo 6 com OK no tempo 30.0
+
+ ###############  RODADA 2 ###############
+Processo 0 testa processo 1 com OK no tempo 60.0, Processo 0 ATUALIZOU state de [ 3 5 ]
+Processo 0 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 0 testa processo 2 com OK no tempo 60.0, Processo 0 ATUALIZOU state de [ 6 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 -1 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 0 testa processo 4 com OK no tempo 60.0
+Processo 1 testa processo 0 com OK no tempo 60.0, Processo 1 ATUALIZOU state de [ 6 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 1 testa processo 3 com OK no tempo 60.0, Processo 1 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 0 0 -1 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 1 testa processo 5 com OK no tempo 60.0
+Processo 2 testa processo 0 com OK no tempo 60.0, Processo 2 ATUALIZOU state de [ 5 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 2 testa processo 3 com FALHA no tempo 60.0 *** FALSA SUSPEITA ***, Processo 2 ATUALIZOU state de [ 3 ]
+Processo 2 testa processo 6 com OK no tempo 60.0, Processo 2 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 3 testa processo 1 com OK no tempo 60.0
+Processo 3 testa processo 2 com OK no tempo 60.0, Processo 3 ATUALIZOU state de [ 3 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 4 STATE[ 0 0 0 -1 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+
+@@@@@@ PROCESSO 3 , detectou que foi vítima de FALSA SUSPEITA pelo 2 @@@@@@@@ 
+
+**** DADOS DO EVENTO DEPOIS QUE PROCESSO PERCEBEU QUE FOI VÍTIMA DE FALSA SUSPEITA ****
+Processo: 3
+Tipo do Evento: Falsa Suspeita
+Latência: 0
+Rodada do evento: 2
+Testes após evento: 4
+*********************************************************
+
+Processo 3 FALHOU no tempo 60.0
+
+**** DADOS NOVO EVENTO ****
+Processo: 3
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 2
+Testes após evento: 0
+***************************
+
+Processo 4 testa processo 0 com OK no tempo 60.0, Processo 4 ATUALIZOU state de [ 3 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 4 testa processo 5 com OK no tempo 60.0, Processo 4 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 4 testa processo 6 com OK no tempo 60.0
+Processo 5 testa processo 1 com OK no tempo 60.0
+Processo 5 testa processo 4 com OK no tempo 60.0
+Processo 5 testa processo 7 com OK no tempo 60.0
+Processo 6 testa processo 2 com OK no tempo 60.0, Processo 6 ATUALIZOU state de [ 3 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 0 0 0 0 0 ]
+
+Processo 6 testa processo 4 com OK no tempo 60.0
+Processo 6 testa processo 7 com OK no tempo 60.0
+Processo 7 testa processo 3 com FALHA no tempo 60.0, Processo 7 ATUALIZOU state de [ 3 ]
+Processo 7 testa processo 5 com OK no tempo 60.0
+Processo 0 STATE[ 0 0 0 0 0 0 0 -1 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 0 0 0 ]
+
+Processo 7 testa processo 6 com OK no tempo 60.0
+
+ ###############  RODADA 3 ###############
+Processo 0 testa processo 1 com OK no tempo 90.0, Processo 0 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 0 0 0 ]
+
+Processo 0 testa processo 2 com OK no tempo 90.0, Processo 0 ATUALIZOU state de [ 3 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 0 0 0 ]
+
+Processo 0 testa processo 4 com OK no tempo 90.0
+Processo 1 testa processo 0 com OK no tempo 90.0, Processo 1 ATUALIZOU state de [ 3 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 0 0 0 ]
+
+Processo 1 testa processo 5 com OK no tempo 90.0
+Processo 2 testa processo 0 com OK no tempo 90.0
+Processo 2 testa processo 1 com OK no tempo 90.0
+Processo 2 testa processo 6 com OK no tempo 90.0
+Processo 2 testa processo 7 com OK no tempo 90.0
+Processo 4 testa processo 0 com OK no tempo 90.0, Processo 4 ATUALIZOU state de [ 3 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 0 0 0 ]
+
+Processo 4 testa processo 5 com OK no tempo 90.0
+Processo 4 testa processo 6 com OK no tempo 90.0
+Processo 5 testa processo 1 com OK no tempo 90.0, Processo 5 ATUALIZOU state de [ 3 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 0 0 0 ]
+
+
+**** DADOS DO EVENTO APÓS TODOS PROCESSOS PERCEBEREM ****
+Processo: 3
+Tipo do Evento: FAULT
+Latência: 1
+Rodada do evento: 2
+Testes após evento: 25
+*********************************************************
+
+Processo 5 testa processo 4 com FALHA no tempo 90.0 *** FALSA SUSPEITA ***, Processo 5 ATUALIZOU state de [ 4 ]
+Processo 5 testa processo 7 com OK no tempo 90.0
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 0 0 0 ]
+
+Processo 6 testa processo 2 com OK no tempo 90.0
+Processo 6 testa processo 4 com OK no tempo 90.0
+Processo 6 testa processo 7 com OK no tempo 90.0
+Processo 7 testa processo 5 com FALHA no tempo 90.0 *** FALSA SUSPEITA ***, Processo 7 ATUALIZOU state de [ 5 ]
+Processo 7 testa processo 6 com OK no tempo 90.0
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 1 0 0 ]
+
+
+ ###############  RODADA 4 ###############
+Processo 0 testa processo 1 com OK no tempo 120.0
+Processo 0 testa processo 2 com OK no tempo 120.0
+Processo 0 testa processo 4 com OK no tempo 120.0
+Processo 1 testa processo 0 com OK no tempo 120.0
+Processo 1 testa processo 5 com OK no tempo 120.0, Processo 1 ATUALIZOU state de [ 4 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 1 0 0 ]
+
+Processo 2 testa processo 0 com OK no tempo 120.0
+Processo 2 testa processo 1 com OK no tempo 120.0, Processo 2 ATUALIZOU state de [ 4 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 1 0 0 ]
+
+Processo 2 testa processo 6 com OK no tempo 120.0
+Processo 2 testa processo 7 com OK no tempo 120.0, Processo 2 ATUALIZOU state de [ 5 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 1 0 0 ]
+
+Processo 4 testa processo 0 com OK no tempo 120.0
+Processo 4 testa processo 5 com OK no tempo 120.0, Processo 4 ATUALIZOU state de [ 4 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 6 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 1 0 0 ]
+
+
+@@@@@@ PROCESSO 4 , detectou que foi vítima de FALSA SUSPEITA pelo 5 @@@@@@@@ 
+
+**** DADOS DO EVENTO DEPOIS QUE PROCESSO PERCEBEU QUE FOI VÍTIMA DE FALSA SUSPEITA ****
+Processo: 4
+Tipo do Evento: Falsa Suspeita
+Latência: 1
+Rodada do evento: 3
+Testes após evento: 18
+*********************************************************
+
+Processo 4 FALHOU no tempo 120.0
+
+**** DADOS NOVO EVENTO ****
+Processo: 4
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 4
+Testes após evento: 0
+***************************
+
+Processo 5 testa processo 0 com OK no tempo 120.0
+Processo 5 testa processo 1 com OK no tempo 120.0
+Processo 5 testa processo 6 com OK no tempo 120.0
+Processo 5 testa processo 7 com FALHA no tempo 120.0 *** FALSA SUSPEITA ***, Processo 5 ATUALIZOU state de [ 7 ]
+Processo 6 testa processo 2 com OK no tempo 120.0, Processo 6 ATUALIZOU state de [ 4 5 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 1 ]
+Processo 6 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 0 1 0 1 0 0 ]
+
+Processo 6 testa processo 7 com OK no tempo 120.0
+Processo 7 testa processo 6 com OK no tempo 120.0, Processo 7 ATUALIZOU state de [ 4 ]
+Processo 0 STATE[ 0 0 0 1 0 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 1 ]
+Processo 6 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 0 1 1 1 0 0 ]
+
+
+ ###############  RODADA 5 ###############
+Processo 0 testa processo 1 com OK no tempo 150.0, Processo 0 ATUALIZOU state de [ 4 ]
+Processo 0 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 1 STATE[ 0 0 0 1 1 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 1 ]
+Processo 6 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 0 1 1 1 0 0 ]
+
+
+**** DADOS DO EVENTO APÓS TODOS PROCESSOS PERCEBEREM ****
+Processo: 4
+Tipo do Evento: FAULT
+Latência: 1
+Rodada do evento: 4
+Testes após evento: 8
+*********************************************************
+
+Processo 0 testa processo 2 com FALHA no tempo 150.0 *** FALSA SUSPEITA ***, Processo 0 ATUALIZOU state de [ 2 ]
+Processo 1 testa processo 0 com OK no tempo 150.0, Processo 1 ATUALIZOU state de [ 2 ]
+Processo 0 STATE[ 0 0 1 1 1 0 0 0 ]
+Processo 1 STATE[ 0 0 1 1 1 0 0 0 ]
+Processo 2 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 1 ]
+Processo 6 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 0 1 1 1 0 0 ]
+
+Processo 1 testa processo 5 com OK no tempo 150.0, Processo 1 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 1 1 1 0 0 0 ]
+Processo 1 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 2 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 1 ]
+Processo 6 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 0 1 1 1 0 0 ]
+
+Processo 2 testa processo 0 com OK no tempo 150.0, Processo 2 ATUALIZOU state de [ 2 ]
+Processo 0 STATE[ 0 0 1 1 1 0 0 0 ]
+Processo 1 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 2 STATE[ 0 0 1 1 1 1 0 0 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ 0 0 0 1 1 0 0 1 ]
+Processo 6 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 0 1 1 1 0 0 ]
+
+
+@@@@@@ PROCESSO 2 , detectou que foi vítima de FALSA SUSPEITA pelo 0 @@@@@@@@ 
+
+**** DADOS DO EVENTO DEPOIS QUE PROCESSO PERCEBEU QUE FOI VÍTIMA DE FALSA SUSPEITA ****
+Processo: 2
+Tipo do Evento: Falsa Suspeita
+Latência: 0
+Rodada do evento: 5
+Testes após evento: 4
+*********************************************************
+
+Processo 2 FALHOU no tempo 150.0
+
+**** DADOS NOVO EVENTO ****
+Processo: 2
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 5
+Testes após evento: 0
+***************************
+
+Processo 5 testa processo 0 com OK no tempo 150.0, Processo 5 ATUALIZOU state de [ 2 ]
+Processo 0 STATE[ 0 0 1 1 1 0 0 0 ]
+Processo 1 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 6 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 0 1 1 1 0 0 ]
+
+Processo 5 testa processo 1 com OK no tempo 150.0
+Processo 5 testa processo 6 com OK no tempo 150.0, Processo 5 ATUALIZOU state de [ 5 ]
+Processo 0 STATE[ 0 0 1 1 1 0 0 0 ]
+Processo 1 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ 0 0 1 1 1 1 0 1 ]
+Processo 6 STATE[ 0 0 0 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 0 1 1 1 0 0 ]
+
+
+@@@@@@ PROCESSO 5 , detectou que foi vítima de FALSA SUSPEITA pelo 6 @@@@@@@@ 
+
+**** DADOS DO EVENTO DEPOIS QUE PROCESSO PERCEBEU QUE FOI VÍTIMA DE FALSA SUSPEITA ****
+Processo: 5
+Tipo do Evento: Falsa Suspeita
+Latência: 2
+Rodada do evento: 3
+Testes após evento: 28
+*********************************************************
+
+Processo 5 FALHOU no tempo 150.0
+
+**** DADOS NOVO EVENTO ****
+Processo: 5
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 5
+Testes após evento: 0
+***************************
+
+Processo 6 testa processo 0 com OK no tempo 150.0, Processo 6 ATUALIZOU state de [ 2 ]
+Processo 0 STATE[ 0 0 1 1 1 0 0 0 ]
+Processo 1 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ 0 0 1 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 0 1 1 1 0 0 ]
+
+Processo 6 testa processo 7 com OK no tempo 150.0
+Processo 7 testa processo 1 com OK no tempo 150.0, Processo 7 ATUALIZOU state de [ 2 7 ]
+Processo 0 STATE[ 0 0 1 1 1 0 0 0 ]
+Processo 1 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ 0 0 1 1 1 1 0 0 ]
+Processo 7 STATE[ 0 0 1 1 1 1 0 1 ]
+
+
+@@@@@@ PROCESSO 7 , detectou que foi vítima de FALSA SUSPEITA pelo 1 @@@@@@@@ 
+
+**** DADOS DO EVENTO DEPOIS QUE PROCESSO PERCEBEU QUE FOI VÍTIMA DE FALSA SUSPEITA ****
+Processo: 7
+Tipo do Evento: Falsa Suspeita
+Latência: 1
+Rodada do evento: 4
+Testes após evento: 15
+*********************************************************
+
+Processo 7 FALHOU no tempo 150.0
+
+**** DADOS NOVO EVENTO ****
+Processo: 7
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 5
+Testes após evento: 0
+***************************
+
+
+**** DADOS DO EVENTO APÓS TODOS PROCESSOS PERCEBEREM ****
+Processo: 2
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 5
+Testes após evento: 6
+*********************************************************
+
+
+ ###############  RODADA 6 ###############
+Processo 0 testa processo 1 com OK no tempo 180.0, Processo 0 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 1 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ 0 0 1 1 1 1 0 0 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+
+Processo 0 testa processo 6 com OK no tempo 180.0, Processo 0 ATUALIZOU state de [ 5 ]
+Processo 0 STATE[ 0 0 1 1 1 1 0 1 ]
+Processo 1 STATE[ 0 0 1 1 1 0 0 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ 0 0 1 1 1 1 0 0 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+
+Processo 1 testa processo 0 com OK no tempo 180.0, Processo 1 ATUALIZOU state de [ 5 ]
+Processo 0 STATE[ 0 0 1 1 1 1 0 1 ]
+Processo 1 STATE[ 0 0 1 1 1 1 0 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ 0 0 1 1 1 1 0 0 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+
+
+**** DADOS DO EVENTO APÓS TODOS PROCESSOS PERCEBEREM ****
+Processo: 5
+Tipo do Evento: FAULT
+Latência: 1
+Rodada do evento: 5
+Testes após evento: 6
+*********************************************************
+
+Processo 6 testa processo 0 com OK no tempo 180.0, Processo 6 ATUALIZOU state de [ 7 ]
+Processo 0 STATE[ 0 0 1 1 1 1 0 1 ]
+Processo 1 STATE[ 0 0 1 1 1 1 0 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ 0 0 1 1 1 1 0 1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+
+
+**** DADOS DO EVENTO APÓS TODOS PROCESSOS PERCEBEREM ****
+Processo: 7
+Tipo do Evento: FAULT
+Latência: 1
+Rodada do evento: 5
+Testes após evento: 4
+*********************************************************
+
+Processo 6 testa processo 1 com OK no tempo 180.0
+
+ ###############  RODADA 7 ###############
+Processo 0 testa processo 1 com OK no tempo 210.0
+Processo 0 testa processo 6 com OK no tempo 210.0
+Processo 1 testa processo 0 com OK no tempo 210.0
+Processo 6 testa processo 0 com OK no tempo 210.0
+Processo 6 testa processo 1 com FALHA no tempo 210.0 *** FALSA SUSPEITA ***, Processo 6 ATUALIZOU state de [ 1 ]
+
+ ###############  RODADA 8 ###############
+Processo 0 testa processo 1 com OK no tempo 240.0
+Processo 0 STATE[ 0 0 1 1 1 1 0 1 ]
+Processo 1 STATE[ 0 0 1 1 1 1 0 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ 0 1 1 1 1 1 0 1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+
+Processo 0 testa processo 6 com FALHA no tempo 240.0 *** FALSA SUSPEITA ***, Processo 0 ATUALIZOU state de [ 6 ]
+Processo 1 testa processo 0 com OK no tempo 240.0, Processo 1 ATUALIZOU state de [ 6 ]
+Processo 0 STATE[ 0 0 1 1 1 1 1 1 ]
+Processo 1 STATE[ 0 0 1 1 1 1 1 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ 0 1 1 1 1 1 0 1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+
+Processo 6 testa processo 0 com OK no tempo 240.0, Processo 6 ATUALIZOU state de [ 6 ]
+Processo 0 STATE[ 0 0 1 1 1 1 1 1 ]
+Processo 1 STATE[ 0 0 1 1 1 1 1 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ 0 1 1 1 1 1 1 1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+
+
+@@@@@@ PROCESSO 6 , detectou que foi vítima de FALSA SUSPEITA pelo 0 @@@@@@@@ 
+
+**** DADOS DO EVENTO DEPOIS QUE PROCESSO PERCEBEU QUE FOI VÍTIMA DE FALSA SUSPEITA ****
+Processo: 6
+Tipo do Evento: Falsa Suspeita
+Latência: 0
+Rodada do evento: 8
+Testes após evento: 3
+*********************************************************
+
+Processo 6 FALHOU no tempo 240.0
+
+**** DADOS NOVO EVENTO ****
+Processo: 6
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 8
+Testes após evento: 0
+***************************
+
+
+**** DADOS DO EVENTO APÓS TODOS PROCESSOS PERCEBEREM ****
+Processo: 6
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 8
+Testes após evento: 0
+*********************************************************
+
+
+ ###############  RODADA 9 ###############
+Processo 0 testa processo 1 com OK no tempo 270.0
+Processo 1 testa processo 0 com OK no tempo 270.0
+
+ ###############  RODADA 10 ###############
+Processo 0 testa processo 1 com FALHA no tempo 300.0 *** FALSA SUSPEITA ***, Processo 0 ATUALIZOU state de [ 1 ]
+Processo 1 testa processo 0 com OK no tempo 300.0, Processo 1 ATUALIZOU state de [ 1 ]
+Processo 0 STATE[ 0 1 1 1 1 1 1 1 ]
+Processo 1 STATE[ 0 1 1 1 1 1 1 1 ]
+Processo 2 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 3 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 4 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 6 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+Processo 7 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
+
+
+@@@@@@ PROCESSO 1 , detectou que foi vítima de FALSA SUSPEITA pelo 0 @@@@@@@@ 
+
+**** DADOS DO EVENTO DEPOIS QUE PROCESSO PERCEBEU QUE FOI VÍTIMA DE FALSA SUSPEITA ****
+Processo: 1
+Tipo do Evento: Falsa Suspeita
+Latência: 3
+Rodada do evento: 7
+Testes após evento: 9
+*********************************************************
+
+Processo 1 FALHOU no tempo 300.0
+
+**** DADOS NOVO EVENTO ****
+Processo: 1
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 10
+Testes após evento: 0
+***************************
+
+
+**** DADOS DO EVENTO APÓS TODOS PROCESSOS PERCEBEREM ****
+Processo: 1
+Tipo do Evento: FAULT
+Latência: 0
+Rodada do evento: 10
+Testes após evento: 0
+*********************************************************
+
+
+ ###############  RODADA 11 ###############
+
+ ###############  RODADA 12 ###############
+
+ ###############  RODADA 13 ###############
+
+ ###############  RODADA 14 ###############
+
+ ###############  RODADA 15 ###############
+
+ ###############  RODADA 16 ###############
+
+ ###############  RODADA 17 ###############
+
+ ###############  RODADA 18 ###############
+
+ ###############  RODADA 19 ###############
+
+ ###############  RODADA 20 ###############
+
+ ###############  RODADA 21 ###############
+
+ ###############  RODADA 22 ###############
+
+ ###############  RODADA 23 ###############
+
+ ###############  RODADA 24 ###############
+
+ ###############  RODADA 25 ###############
+
+ ###############  RODADA 26 ###############
+
+ ###############  RODADA 27 ###############

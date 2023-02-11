@@ -469,9 +469,6 @@ Processo 6 testa processo 7 com OK no tempo 210.0
 Processo 7 testa processo 3 com OK no tempo 210.0
 Processo 7 testa processo 5 com OK no tempo 210.0
 Processo 7 testa processo 6 com FALHA no tempo 210.0 *** FALSA SUSPEITA ***, Processo 7 ATUALIZOU state de [ 6 ]
-
- ###############  RODADA 8 ###############
-Processo 0 testa processo 1 com OK no tempo 240.0
 Processo 0 STATE[ 0 0 0 0 0 0 0 0 ]
 Processo 1 STATE[ 0 0 0 0 0 0 0 0 ]
 Processo 2 STATE[ 0 0 0 0 0 0 0 0 ]
@@ -481,6 +478,9 @@ Processo 5 STATE[ 0 0 0 0 0 0 0 0 ]
 Processo 6 STATE[ 0 0 0 0 0 0 0 0 ]
 Processo 7 STATE[ 0 0 0 0 0 0 1 0 ]
 
+
+ ###############  RODADA 8 ###############
+Processo 0 testa processo 1 com OK no tempo 240.0
 Processo 0 testa processo 2 com OK no tempo 240.0
 Processo 0 testa processo 4 com OK no tempo 240.0
 Processo 1 testa processo 0 com OK no tempo 240.0
@@ -684,7 +684,6 @@ Processo 5 testa processo 4 com OK no tempo 360.0
 Processo 5 testa processo 7 com OK no tempo 360.0
 Processo 7 testa processo 2 com OK no tempo 360.0
 Processo 7 testa processo 3 com FALHA no tempo 360.0 *** FALSA SUSPEITA ***, Processo 7 ATUALIZOU state de [ 3 ]
-Processo 7 testa processo 4 com OK no tempo 360.0
 Processo 0 STATE[ 0 0 0 0 0 0 1 0 ]
 Processo 1 STATE[ 0 0 0 0 0 0 1 0 ]
 Processo 2 STATE[ 0 0 0 0 0 0 1 0 ]
@@ -694,6 +693,7 @@ Processo 5 STATE[ 0 0 0 0 0 0 1 0 ]
 Processo 6 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
 Processo 7 STATE[ 0 0 0 1 0 0 1 0 ]
 
+Processo 7 testa processo 4 com OK no tempo 360.0
 Processo 7 testa processo 5 com OK no tempo 360.0
 
  ###############  RODADA 13 ###############
@@ -762,7 +762,6 @@ Processo 0 testa processo 2 com OK no tempo 420.0
 Processo 0 testa processo 4 com OK no tempo 420.0
 Processo 1 testa processo 0 com OK no tempo 420.0
 Processo 1 testa processo 3 com FALHA no tempo 420.0, Processo 1 ATUALIZOU state de [ 3 ]
-Processo 1 testa processo 5 com OK no tempo 420.0
 Processo 0 STATE[ 0 0 0 0 0 0 1 0 ]
 Processo 1 STATE[ 0 0 0 1 0 0 1 0 ]
 Processo 2 STATE[ 0 0 0 0 0 0 1 0 ]
@@ -772,6 +771,7 @@ Processo 5 STATE[ 0 0 0 1 0 0 1 0 ]
 Processo 6 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
 Processo 7 STATE[ 0 0 0 1 0 0 1 0 ]
 
+Processo 1 testa processo 5 com OK no tempo 420.0
 Processo 2 testa processo 0 com OK no tempo 420.0
 Processo 2 testa processo 1 com OK no tempo 420.0, Processo 2 ATUALIZOU state de [ 3 ]
 Processo 0 STATE[ 0 0 0 0 0 0 1 0 ]
@@ -945,9 +945,6 @@ Processo 5 testa processo 7 com OK no tempo 630.0
 Processo 7 testa processo 2 com OK no tempo 630.0
 Processo 7 testa processo 4 com OK no tempo 630.0
 Processo 7 testa processo 5 com FALHA no tempo 630.0 *** FALSA SUSPEITA ***, Processo 7 ATUALIZOU state de [ 5 ]
-
- ###############  RODADA 22 ###############
-Processo 0 testa processo 1 com OK no tempo 660.0
 Processo 0 STATE[ 0 0 0 1 0 0 1 0 ]
 Processo 1 STATE[ 0 0 0 1 0 0 1 0 ]
 Processo 2 STATE[ 0 0 0 1 0 0 1 0 ]
@@ -957,6 +954,9 @@ Processo 5 STATE[ 0 0 0 1 0 0 1 0 ]
 Processo 6 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
 Processo 7 STATE[ 0 0 0 1 0 1 1 0 ]
 
+
+ ###############  RODADA 22 ###############
+Processo 0 testa processo 1 com OK no tempo 660.0
 Processo 0 testa processo 2 com OK no tempo 660.0
 Processo 0 testa processo 4 com OK no tempo 660.0
 Processo 1 testa processo 0 com OK no tempo 660.0
@@ -1077,7 +1077,6 @@ Processo 7 testa processo 4 com OK no tempo 720.0
 
  ###############  RODADA 25 ###############
 Processo 0 testa processo 1 com FALHA no tempo 750.0 *** FALSA SUSPEITA ***, Processo 0 ATUALIZOU state de [ 1 ]
-Processo 0 testa processo 2 com OK no tempo 750.0
 Processo 0 STATE[ 0 1 0 1 0 1 1 0 ]
 Processo 1 STATE[ 0 0 0 1 0 1 1 0 ]
 Processo 2 STATE[ 0 0 0 1 0 1 1 0 ]
@@ -1087,6 +1086,7 @@ Processo 5 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
 Processo 6 STATE[ -1 -1 -1 -1 -1 -1 -1 -1 ]
 Processo 7 STATE[ 0 0 0 1 0 1 1 0 ]
 
+Processo 0 testa processo 2 com OK no tempo 750.0
 Processo 0 testa processo 4 com OK no tempo 750.0
 Processo 1 testa processo 0 com OK no tempo 750.0, Processo 1 ATUALIZOU state de [ 1 ]
 Processo 0 STATE[ 0 1 0 1 0 1 1 0 ]
